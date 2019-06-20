@@ -20,6 +20,59 @@ class LayoutTutorial extends StatelessWidget {
       appBar: AppBar(
         title: Text('Flutter Layout'),
       ), //AppBar
+      // TODO: Diagram the layout - title
+      body: Column(
+        children: <Widget>[
+          _imageSection(),
+          _titleSection(),
+
+        ],
+      ),
     ); // Scaffold
   }
+
+  Widget _imageSection() {
+    return Row(
+
+    );
+  } // _imageSection
+
+  Widget _titleSection() {
+    return Padding(
+      padding: const EdgeInsets.all(24.0),
+      child: Row(
+//      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: <Widget>[
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 8.0),
+                  child: Text(
+                    'Oeschinen Lake Campground',
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                ), // Text
+                Text(
+                  'Kandersteg, Switzerland',
+                  style: TextStyle(color: Colors.grey),
+                ), // Text
+              ],
+            ), // Column
+          ),
+
+
+          Icon(
+            Icons.star,
+            color: Colors.red,
+          ), // Icon
+
+          Text('41'),
+
+        ],
+      ),
+    ); // Row
+  } // _titleSection
 }
+
