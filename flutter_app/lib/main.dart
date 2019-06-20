@@ -25,6 +25,8 @@ class LayoutTutorial extends StatelessWidget {
         children: <Widget>[
           _imageSection(),
           _titleSection(),
+          _buttonSection(),
+          _textSection(),
 
         ],
       ),
@@ -32,8 +34,11 @@ class LayoutTutorial extends StatelessWidget {
   }
 
   Widget _imageSection() {
-    return Row(
-
+    return Image.asset(
+      'assets/lake.jpg',
+      width: 600,
+      height: 240,
+      fit: BoxFit.fill,
     );
   } // _imageSection
 
@@ -60,7 +65,7 @@ class LayoutTutorial extends StatelessWidget {
                 ), // Text
               ],
             ), // Column
-          ),
+          ), // Expanded
 
 
           Icon(
@@ -71,8 +76,52 @@ class LayoutTutorial extends StatelessWidget {
           Text('41'),
 
         ],
-      ),
-    ); // Row
+      ), // Row
+    ); // Padding
   } // _titleSection
+
+  Widget _buttonSection() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: <Widget>[
+        _buttonItems(Icons.phone, 'CALL'),
+        _buttonItems(Icons.near_me, 'ROUTE'),
+        _buttonItems(Icons.share, 'SHARE'),
+      ],
+    ); // Row
+  } // _buttonSection
+
+  _buttonItems(IconData icon, String text){
+    final Color color = Colors.blue;
+    return Column(
+      children: <Widget>[
+        Icon(
+          icon,
+          color: color,
+        ), // Icon
+        SizedBox(
+          height: 8.0,
+        ),
+        Text(
+            text,
+            style: TextStyle(color: color),
+        ),
+      ],
+    ); // Column
+  }
+
+  Widget _textSection() {
+    return Padding(
+      padding: const EdgeInsets.all(32.0),
+      child: Text(
+        'Lake Oeschinen lies at the foot of the Blüemlisalp in the Bernese '
+            'Alps. Situated 1,578 meters above sea level, it is one of the '
+            'larger Alpine Lakes. A gondola ride from Kandersteg, followed by a '
+            'half-hour walk through pastures and pine forest, leads you to the '
+            'lake, which warms to 20 degrees Celsius in the summer. Activities '
+            'enjoyed here include rowing, and riding the summer toboggan run.',
+      ), // Text
+    ); // Padding
+  }
 }
 
